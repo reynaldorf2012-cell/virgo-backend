@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: virgo-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://reynaldorf2012_db_user:Virgo2019@cluster0.w1v7ppi.mongodb.net/transportes_db?retryWrites=true&w=majority&appName=Cluster0
+      - key: DB_NAME
+        value: transportes_db
+      - key: JWT_SECRET
+        value: transport-evidence-secret-key-2024
